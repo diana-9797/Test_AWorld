@@ -8,11 +8,10 @@ as we've discontinued React Class Components.
 ## Getting started
 
 1. Install and setup both [`git`](https://git-scm.com) and [`Node.js`](https://nodejs.dev/en/) on your machine.
-2. Fork this project on a **private repository** using your GitHub account.
-3. Clone the project locally.
-4. `cd` in the project directory and run `npm install`.
-5. Run `npm start` to have it served on [http://localhost:5173](http://localhost:5173)
-6. edit files inside the `src` directory, the webapp will be automatically updated on save.
+2. Clone the project locally.
+3. `cd` in the project directory and run `npm install`.
+4. Run `npm start` to have it served on [http://localhost:5173](http://localhost:5173)
+5. edit files inside the `src` directory, the webapp will be automatically updated on save.
 
 ## Code
 
