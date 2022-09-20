@@ -1,0 +1,38 @@
+.ToDoItem {
+  display: flex;
+  align-items: flex-start;
+  list-style: none;
+  margin-block: calc(var(--spacing) * 3);
+  padding: 0 var(--spacing);
+}
+
+.ToDoItem input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0 calc(var(--spacing)) 0 0;
+}
+
+.ToDoItem label {
+  flex-grow: 1;
+}
+
+.ToDoItem label>* {
+  display: block;
+}
+
+.ToDoItem .expires {
+  font-size: .8rem;
+}
+
+.ToDoItem .button {
+  cursor: pointer;
+  margin-inline-start: var(--spacing);
+}
+
+.ToDoItem .button:hover {
+  color: var(--accent-color-dark);
+}
+
+.ToDoItem .accent {
+  color: var(--accent-color-main);
+}

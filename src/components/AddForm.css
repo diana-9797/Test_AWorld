@@ -1,0 +1,24 @@
+.AddForm {
+  display: flex;
+  align-items: flex-end;
+}
+
+.AddForm label {
+  margin-inline-end: var(--spacing);
+}
+
+.AddForm label>input {
+  padding: var(--spacing) calc(var(--spacing) * 2);
+  display: block;
+  width: 100%;
+}
+
+.AddForm input[name="text"] {
+  min-width: 50ch;
+}
+
+.AddForm button,
+.AddForm input {
+  height: 50px;
+  line-height: calc(50px - var(--spacing) * 2);
+}
