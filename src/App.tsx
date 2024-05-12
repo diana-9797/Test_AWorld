@@ -1,15 +1,21 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { AddForm } from './components/AddForm';
 import { ToDoItem } from './components/ToDoItem';
 import { Task } from './entities/Task';
+import autoAnimate from '@formkit/auto-animate'
 import './App.css';
 
 export function App() {
   const [taskList, setTaskList] = useState<Task[]>([])
+  const parent = useRef(null);
 
   function addTask(task: Task) {
     setTaskList([...taskList, task]);
   }
+
+  useEffect(() => {
+    parent.current && autoAnimate(parent.current);
+  }, [parent]);
 
   function updateTask(task: Task) {
     let updatedList = [];
@@ -39,7 +45,7 @@ export function App() {
       </header>
       <main>
         <AddForm onSubmit={(item) => addTask(item)} />
-        <ul>
+        <ul ref={parent}>
          {taskList.map((todo) => (
             <ToDoItem
               key={todo.id}
