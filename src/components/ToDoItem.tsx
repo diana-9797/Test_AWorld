@@ -13,21 +13,25 @@ export function ToDoItem(props: ToDoItemProps) {
 
   return (
     <li className="ToDoItem">
-      <input
-        type="checkbox"
-        checked={props.value.completed}
-        onChange={(event) => {
-          props.onChange({
-            ...props.value,
-            completed: event.currentTarget.checked,
-          });
-        }}
-      />
       <label>
-        <span className="text">{props.value.text}</span>
-        <span className="expires">
-          {`Expires: ${props.value.expire.toLocaleDateString()} ${props.value.expire.getHours()}:${props.value.expire.getMinutes()}`}
-        </span>
+        <input
+          type="checkbox"
+          checked={props.value.completed}
+          onChange={(event) => {
+            props.onChange({
+              ...props.value,
+              completed: event.currentTarget.checked,
+            });
+          }}
+        />
+        <div className="textContent">
+          <span className="text">{props.value.text}</span>
+          <span className="expires">
+            {`Expires: ${props.value.expire.toLocaleDateString()} ${props.value.expire.getHours()}:${(
+              "0" + props.value.expire.getMinutes()
+            ).slice(-2)}`}
+          </span>
+        </div>
       </label>
       {
         showDeleteConfirm ? (
