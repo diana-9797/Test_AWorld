@@ -27,6 +27,13 @@
 .ToDoItem .button {
   cursor: pointer;
   margin-inline-start: var(--spacing);
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  line-height: inherit;
+  border-radius: unset;
+  color: var(--text-color);
+  outline-offset: 5px;
 }
 
 .ToDoItem .button:hover {
