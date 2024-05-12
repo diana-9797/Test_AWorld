@@ -24,6 +24,10 @@
   font-size: .8rem;
 }
 
+.ToDoItem .expiredTask {
+  color: var(--expired-color);
+}
+
 .ToDoItem .button {
   cursor: pointer;
   margin-inline-start: var(--spacing);

@@ -25,7 +25,7 @@ export function ToDoItem(props: ToDoItemProps) {
       />
       <label>
         <span className="text">{props.value.text}</span>
-        <span className="expires">
+        <span className={`expires ${new Date().getTime() > props.value.expire.getTime() && "expiredTask"}`}>
           {`Expires: ${props.value.expire.toLocaleDateString()} ${props.value.expire.getHours()}:${props.value.expire.getMinutes()}`}
         </span>
       </label>
