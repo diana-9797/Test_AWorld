@@ -36,3 +36,18 @@
 .ToDoItem .accent {
   color: var(--accent-color-main);
 }
+
+@media (prefers-color-scheme: dark) {
+  .ToDoItem .button{
+    color: var(--text-color-darkmode)
+  }
+
+  .ToDoItem .button:hover {
+    color: var(--accent-color-dark-darkmode);
+  }
+  
+  .ToDoItem .accent {
+    color: var(--accent-color-main-darkmode);
+  }
+  
+}

@@ -10,9 +10,13 @@
   -webkit-text-size-adjust: 100%;
 
   --text-color: #213547;
+  --text-color-darkmode: #fff;
   --background-color: #fff;
+  --background-color-darkmode: #22303c;
   --accent-color-main: #646cff;
+  --accent-color-main-darkmode:  #dddeec;
   --accent-color-dark: #161ec0;
+  --accent-color-dark-darkmode: #a6b3f2;
   --button-color: #a3a5c6;
 
   --spacing: .6rem;
@@ -25,6 +29,13 @@
 html {
   background: var(--background-color);
   color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+      background: var(--background-color-darkmode);
+      color: var(--text-color-darkmode);
+  }
 }
 
 a {
