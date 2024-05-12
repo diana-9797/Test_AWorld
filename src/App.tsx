@@ -12,12 +12,16 @@ export function App() {
   }
 
   function updateTask(task: Task) {
-    const updatedList = taskList.map((item) => {
-      if (item.id === task.id) {
-        return task;
+    let updatedList = [];
+    for (let i = 0; i < taskList.length; i++) {
+      if (taskList[i].id === task.id) {
+        !task.completed && updatedList.unshift(task);
+      } else {
+        updatedList.push(taskList[i]);
       }
-      return item;
-    })
+    }
+
+    task.completed && updatedList.push(task);
     setTaskList(updatedList);
   }
 
