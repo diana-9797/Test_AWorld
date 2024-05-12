@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AddForm } from './components/AddForm';
 import { ToDoItem } from './components/ToDoItem';
 import { Task } from './entities/Task';
@@ -6,6 +6,29 @@ import './App.css';
 
 export function App() {
   const [taskList, setTaskList] = useState<Task[]>([])
+
+  useEffect(() => {
+    let items = localStorage.getItem("taskList");
+    if (items) {
+      const itemsArray = JSON.parse(items) as Array<any>;
+      const itemsDateFormat = itemsArray?.map((item) => ({
+        ...item,
+        expire: new Date(item.expire),
+      }));
+      setTaskList(itemsDateFormat);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (taskList && taskList.length > 0) {
+      const tasksStorage = taskList.map((task) => ({
+        ...task,
+        expire: task.expire.toISOString(),
+      }));
+
+      localStorage.setItem("taskList", JSON.stringify(tasksStorage));
+    }
+  }, [taskList]);
 
   function addTask(task: Task) {
     setTaskList([...taskList, task]);
