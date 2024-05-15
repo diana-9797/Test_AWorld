@@ -14,6 +14,14 @@
 
 .ToDoItem label {
   flex-grow: 1;
+  display: flex;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.ToDoItem .textContent {
+  display: flex;
+  flex-direction: column;
 }
 
 .ToDoItem label>* {
