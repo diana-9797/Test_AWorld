@@ -6,6 +6,7 @@ import './App.css';
 
 export function App() {
   const [taskList, setTaskList] = useState<Task[]>([])
+  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
     let items = localStorage.getItem("taskList");
@@ -17,10 +18,11 @@ export function App() {
       }));
       setTaskList(itemsDateFormat);
     }
+    setIsInitialLoad(false);
   }, []);
 
   useEffect(() => {
-    if (taskList && taskList.length > 0) {
+    if (!isInitialLoad) {
       const tasksStorage = taskList.map((task) => ({
         ...task,
         expire: task.expire.toISOString(),
@@ -28,7 +30,7 @@ export function App() {
 
       localStorage.setItem("taskList", JSON.stringify(tasksStorage));
     }
-  }, [taskList]);
+  }, [taskList, isInitialLoad]);
 
   function addTask(task: Task) {
     setTaskList([...taskList, task]);
