@@ -36,11 +36,11 @@ export function ToDoItem(props: ToDoItemProps) {
       {
         showDeleteConfirm ? (
           <>
-            <span className="button accent" onClick={() => props.onDelete(props.value)}>Confirm</span>
-            <span className="button" onClick={() => setShowDeleteConfirm(false)}>Cancel</span>
+            <button className="button accent" onClick={() => props.onDelete(props.value)}>Confirm</button>
+            <button className="button" onClick={() => setShowDeleteConfirm(false)}>Cancel</button>
           </>
         ) : (
-          <span className="button accent" onClick={() => setShowDeleteConfirm(true)}>Delete</span>
+          <button className="button accent" onClick={() => setShowDeleteConfirm(true)}>Delete</button>
         )
       }
     </li>
